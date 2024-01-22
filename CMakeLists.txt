@@ -17,7 +17,7 @@ find_package(CUDA REQUIRED)
 
 find_package(OpenCV REQUIRED)
 
-find_package(Boost REQUIRED COMPONENTS boost_filesystem)
+find_package(Boost REQUIRED COMPONENTS filesystem)
 
 file(GLOB_RECURSE sources modules/*.hpp modules/*.cpp modules/*.h modules/*.cu extra/*.h module/preprocess.cu)
 add_library(detector SHARED ${sources})
