@@ -1,6 +1,6 @@
 <launch>
   <!-- image topic name to be subscribed -->
-  <arg name="input/image" default="/sensing/camera/camera0/image_rect_color"/>
+  <arg name="input/image" default="/sensing/camera/camera0/image_raw"/>
   <arg name="input/camera_info" default="/sensing/camera/camera0/camera_info"/>
 
   <!-- output topic name to be published -->
@@ -12,10 +12,10 @@
   <!-- <arg name="width" default="1280"/> -->
   <!-- <arg name="height" default="960"/> -->
 
-  <arg name="model_cfg" default="$(find-pkg-share lightnet_trt)/configs/yolov8x-BDD100K-640x640-T4-lane4cls.cfg"/>
-  <arg name="model_weights" default="$(find-pkg-share lightnet_trt)/configs/yolov8x-BDD100K-640x640-T4-lane4cls-scratch-pseudo-finetune_last.weights"/>
-  <arg name="width" default="640"/>
-  <arg name="height" default="640"/>
+  <arg name="model_cfg" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-1280x960.cfg"/>
+  <arg name="model_weights" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-1280x960.weights"/>
+  <arg name="width" default="1280"/>
+  <arg name="height" default="960"/>
   <arg name="param_path" default="$(find-pkg-share lightnet_trt)/ros_config/lightnet_trt.param.yaml"/>
 
   <group>

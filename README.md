@@ -117,17 +117,30 @@ $ ./lightNet-TRT --flagfile ../configs/lightNet-BDD100K-det-semaseg-1280x960.txt
 
 ### Inference with ROS 2 node
 
-You can build as follows. Note that current implementation requires Autoware installed and sourced.
+You can run LightNet-TRT as a ROS 2 node. Note that current implementation requires Autoware installed and sourced.
+
+First, checkout the repository.
 
 ```bash
 mkdir lightnet_trt_ws/src -p
 cd lightnet_trt_ws/src
 git clone https://github.com/kminoda/lightNet-TRT-ROS2.git
-cd ..
+```
+
+Download [weights] and place the file inside the configs directory.
+
+```bash
+cp path/to/weights lightNet-TRT-ROS2/configs/
+```
+
+Build the package.
+
+```bash
+cd lightnet_trt_ws
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ROS2_LIGHTNET_TRT=ON
 ```
 
-Then, you can run the node as follows.
+You can run the node as follows.
 
 ```bash
 ros2 launch lightnet_trt lightnet_trt.launch.xml
