@@ -17,6 +17,8 @@ find_package(CUDA REQUIRED)
 
 find_package(OpenCV REQUIRED)
 
+find_package(Boost REQUIRED COMPONENTS filesystem)
+
 file(GLOB_RECURSE sources modules/*.hpp modules/*.cpp modules/*.h modules/*.cu extra/*.h module/preprocess.cu)
 add_library(detector SHARED ${sources})
 
@@ -26,7 +28,7 @@ target_link_libraries(detector ${CUDA_LIBRARIES} nvinfer nvinfer_plugin nvparser
 add_executable(lightnet_trt samples/sample_detector.cpp ${sources})
 
 target_include_directories(lightnet_trt PRIVATE modules/ extra/)
-target_link_libraries(lightnet_trt ${CUDA_LIBRARIES} ${OpenCV_LIBS} nvinfer nvinfer_plugin nvparsers gflags boost_system boost_filesystem "stdc++fs" "stdc++")
+target_link_libraries(lightnet_trt ${CUDA_LIBRARIES} ${OpenCV_LIBS} nvinfer nvinfer_plugin nvparsers gflags boost_system ${Boost_FILESYSTEM_LIBRARY} "stdc++fs" "stdc++")
 
 
 # ROS 2 package
