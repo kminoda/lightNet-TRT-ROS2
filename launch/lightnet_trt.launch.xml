@@ -7,13 +7,8 @@
   <arg name="output/objects" default="/perception/object_recognition/detection/rois0"/>
 
   <!-- path to the lightNet-TRT cfg file to be loaded -->
-  <!-- <arg name="model_cfg" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-det-semaseg-1280x960.cfg"/> -->
-  <!-- <arg name="model_weights" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-det-semaseg-1280x960.weights"/> -->
-  <!-- <arg name="width" default="1280"/> -->
-  <!-- <arg name="height" default="960"/> -->
-
-  <arg name="model_cfg" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-1280x960.cfg"/>
-  <arg name="model_weights" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-1280x960.weights"/>
+  <arg name="model_cfg" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-det-semaseg-1280x960.cfg"/>
+  <arg name="model_weights" default="$(find-pkg-share lightnet_trt)/configs/lightNet-BDD100K-det-semaseg-1280x960.weights"/>
   <arg name="width" default="1280"/>
   <arg name="height" default="960"/>
   <arg name="param_path" default="$(find-pkg-share lightnet_trt)/ros_config/lightnet_trt.param.yaml"/>

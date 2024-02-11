@@ -122,12 +122,12 @@ You can run LightNet-TRT as a ROS 2 node. Note that current implementation requi
 First, checkout the repository.
 
 ```bash
-mkdir lightnet_trt_ws/src -p
-cd lightnet_trt_ws/src
+mkdir ros2_ws/src -p
+cd ros2_ws/src
 git clone https://github.com/kminoda/lightNet-TRT-ROS2.git
 ```
 
-Download [weights] and place the file inside the configs directory.
+Download [weights](https://drive.google.com/file/d/1ttdVtlDiPun13EQCB4Nyls3Q8w5aXg1i/view) and place the file inside the configs directory.
 
 ```bash
 cp path/to/weights lightNet-TRT-ROS2/configs/
@@ -136,8 +136,9 @@ cp path/to/weights lightNet-TRT-ROS2/configs/
 Build the package.
 
 ```bash
-cd lightnet_trt_ws
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ROS2_LIGHTNET_TRT=ON
+cd ros2_ws
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ROS2_LIGHTNET_TRT=ON --packages-up-to=lightnet_trt
+source install/setup.bash
 ```
 
 You can run the node as follows.
